@@ -46,21 +46,26 @@ void loop() {
 
     if (receivedChar == 'f') {
       forward();
+      delay(500);
       
     } else if (receivedChar == 'b') {
       backward();
+      delay(500);
       
     } else if (receivedChar == 'r') {
       right();
-      
+      delay(500);
+
     } else if (receivedChar == 'l') {
       left();
-      
+      delay(500);
+
     } else {
       stop();
       
     }
   }
+  
 }
 
   void forward(){
