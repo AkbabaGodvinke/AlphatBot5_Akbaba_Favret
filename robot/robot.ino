@@ -40,32 +40,34 @@ void setup() {
 
 
 void loop() {
+  String receivedChar="";
   if (mySerial.available()) {
-    char receivedChar = mySerial.read();
-    Serial.println(receivedChar);
+    receivedChar = mySerial.readString();
 
-    if (receivedChar == 'f') {
+    if (receivedChar == "avancer") {
       forward();
       delay(500);
-      
-    } else if (receivedChar == 'b') {
+      stop();
+    } else if (receivedChar == "reculer") {
       backward();
       delay(500);
-      
-    } else if (receivedChar == 'r') {
+      stop();
+    } else if (receivedChar == "a_droite") {
       right();
       delay(500);
-
-    } else if (receivedChar == 'l') {
+      stop();
+    } else if (receivedChar == "a_gauche") {
       left();
       delay(500);
-
-    } else {
       stop();
-      
+    } else if (receivedChar == "stop"){
+      stop();
+      delay(500);
+    }
+    else{
+      mySerial.print("NOK");
     }
   }
-  
 }
 
   void forward(){
