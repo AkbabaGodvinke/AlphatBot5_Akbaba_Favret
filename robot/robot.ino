@@ -3,8 +3,8 @@
 #include <SoftwareSerial.h>
 #define PIN 7
 #define NUM_SENSORS 5
-#define rxPin 3
-#define txPin 2
+#define rxPin 4
+#define txPin 3
 TRSensors trs =   TRSensors();
 unsigned int sensorValues[NUM_SENSORS];
 unsigned int last_proportional = 0;
@@ -44,23 +44,23 @@ void loop() {
   if (mySerial.available()) {
     receivedChar = mySerial.readString();
 
-    if (receivedChar == "avancer") {
+    if (receivedChar == "AVANCER") {
       forward();
-      delay(500);
+      delay(1000);
       stop();
-    } else if (receivedChar == "reculer") {
+    } else if (receivedChar == "RECULER") {
       backward();
-      delay(500);
+      delay(1000);
       stop();
-    } else if (receivedChar == "a_droite") {
+    } else if (receivedChar == "A_DROITE") {
       right();
-      delay(500);
+      delay(1000);
       stop();
-    } else if (receivedChar == "a_gauche") {
+    } else if (receivedChar == "A_GAUCHE") {
       left();
-      delay(500);
+      delay(1000);
       stop();
-    } else if (receivedChar == "stop"){
+    } else if (receivedChar == "STOP"){
       stop();
       delay(500);
     }
